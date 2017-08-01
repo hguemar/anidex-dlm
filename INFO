@@ -2,7 +2,7 @@
   "name": "anidex",
   "displayname": "Anidex",
   "description": "Anidex torrent tracker Search",
-  "version": "0.1",
+  "version": "0.2",
   "site": "https://anidex.info",
   "module": "search.php",
   "type": "search",

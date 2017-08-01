@@ -19,6 +19,12 @@ class TorrentSearchAnidex {
         return $size;
     }
 
+    private function format_datetime($datetime) {
+        $timestamp = strtotime($datetime);
+        $converted_datetime = date("Y-m-d H:i", $timestamp);
+        return $converted_datetime;
+    }
+
 
     public function prepare($curl, $query) {
         $url = $this->qurl . urlencode($query);
@@ -44,7 +50,7 @@ class TorrentSearchAnidex {
                 $title = $match["title"];
                 $download = $match["download"];
                 $size = $this->format_size($match["size"], $match["unit"]);
-                $datetime = $match["date"];
+                $datetime = $this->format_datetime($match["date"]);
                 $page = "https:\/\/anidex.info/?page=torrent&id=%s" . $match["id"];
                 $hash = $count;
                 $seeds = 0; // FIXME
